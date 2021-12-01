@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('admin')->group(function () {
     Route::get('/login', 'Auth\Admin\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\Admin\AdminLoginController@login')->name('admin.login.submit');
-    Route::get('logout/', 'Auth\Admin\AdminLoginController@logout')->name('admin.logout');
-    Route::get('/', 'Auth\Admin\DashboardController@index')->name('admin.dashboard');
+    Route::get('/logout', 'Auth\Admin\AdminLoginController@logout')->name('admin.logout');
+
+    Route::middleware('auth:admin')->namespace('Admin')->group(function () {
+        Route::get('/', 'DashboardController@index')->name('admin.dashboard');
+        Route::resource('/category', 'CategoryController');
+        Route::post('/category-datatable', 'CategoryController@datatable')->name('category.datatable');
+    });
 });
