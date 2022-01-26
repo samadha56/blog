@@ -30,7 +30,9 @@ Route::prefix('admin')->group(function () {
 
     Route::middleware('auth:admin')->namespace('Admin')->group(function () {
         Route::get('/', 'DashboardController@index')->name('admin.dashboard');
-        Route::resource('/category', 'CategoryController');
-        Route::post('/category-datatable', 'CategoryController@datatable')->name('category.datatable');
+        Route::resource('/category', 'CategoryController'); // Categories
+        Route::post('/category-datatable', 'CategoryController@datatable')->name('admin.category.datatable'); // Category Datatable
+        Route::resource('/post', 'PostController'); // Posts
+        Route::post('/post-datatable', 'PostController@datatable')->name('admin.post.datatable'); // Post Datatable
     });
 });

@@ -1,14 +1,14 @@
 @extends('layouts.admin')
-@section('page-title', 'All Category')
-@section('content-title', 'All Categories')
+@section('page-title', 'All Posts')
+@section('content-title', 'All Posts')
 @section('content')
     <div class="m-content">
         <!--Begin::Section-->
         <div class="m-portlet m-portlet--mobile">
             <div class="m-portlet__head">
                 <div class="m-portlet__head-tools">
-                    <a href="{{ route('category.create') }}" class="btn btn-primary">
-                        <i class="fas fa-plus-square"></i> Create New Category
+                    <a href="{{ route('post.create') }}" class="btn btn-primary">
+                        <i class="fas fa-plus-square"></i> Write New Post
                     </a>
                 </div>
             </div>
@@ -18,8 +18,9 @@
                     <thead>
                         <tr>
                             <th class="table-row-count">Row</th>
+                            <th>title</th>
                             <th>Slug</th>
-                            <th>Name</th>
+                            <th>Create Time</th>
                             <th>Options</th>
                         </tr>
                     </thead>
@@ -45,7 +46,7 @@
                 [0, 'desc']
             ],
             ajax: {
-                url: '{{ route('admin.category.datatable') }}',
+                url: '{{ route('admin.post.datatable') }}',
                 "type": "POST",
                 "data": function(d) {
                     d._token = '{{ csrf_token() }}';
@@ -55,10 +56,13 @@
                     data: 'indexColumn'
                 },
                 {
+                    data: 'title'
+                },
+                {
                     data: 'slug'
                 },
                 {
-                    data: 'name'
+                    data: 'created_at'
                 },
                 {
                     data: 'options',
