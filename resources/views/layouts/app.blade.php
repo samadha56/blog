@@ -33,7 +33,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        @foreach (App\Models\Category::all() as $category)
+                            <li><a href="{{ route('site.category', $category->slug) }}">{{ $category->name }}</a></li>
+                        @endforeach
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -75,8 +77,16 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
+        <main class="mt-4 container border bg-white rounded">
+            <div class="row">
+                <div class="col-md-8 p-5">
+                    @yield('content')
+                </div>
+                <div class="col-md-4 p-5">
+                    <h1 style='font-size: 16px;'>New Posts</h1>
+                    <hr>
+                </div>
+            </div>
         </main>
     </div>
 </body>

@@ -15,13 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Site\IndexController@index')->name('site.index');
+Route::get('/category/{slug}', 'Site\CategoryController@index')->name('site.category');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Login and Register Routes
+Auth::routes(['login' => false, 'register' => false]);
+// Route::get('/home', [App\Http\Controllers\Dashboard\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->group(function () {
     Route::get('/login', 'Auth\Admin\AdminLoginController@showLoginForm')->name('admin.login');

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Admin</title>
+    <title>Admin Panel Login</title>
 </head>
 
 <body>
@@ -18,7 +18,8 @@
                     <div class="card-body">
                         <form id="sign_in_adm" method="POST" action="{{ route('admin.login.submit') }}">
                             {{ csrf_field() }}
-                            <h1>Admin Login</h1>
+                            <h1 class="text-center">Admin Panel</h1>
+                            <hr>
                             <div>
                                 <input type="email" name=email class="form-control" placeholder="Email Address"
                                     value="{{ old('email') }}" required autofocus>
@@ -28,11 +29,11 @@
                             @endif
                             <br>
                             <div>
-                                <input type="password" name="password" class="form-control" required>
+                                <input type="password" name="password" class="form-control" placeholder="Password" required>
                             </div>
                             <br>
-                            <div>
-                                <button type="submit" class="btn btn-primary">Admin Login</button>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Login</button>
                             </div>
                         </form>
                     </div>

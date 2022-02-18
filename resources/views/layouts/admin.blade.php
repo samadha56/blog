@@ -16,6 +16,7 @@
     <!-- Datatable -->
     <link rel="stylesheet" href="{{ asset('dataTables/dataTables-bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('dataTables/jquery.dataTables.min.css') }}">
+    @yield('header')
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -30,10 +31,7 @@
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="{{ route('site.index') }}" class="nav-link" target="_blank">Home Page</a>
                 </li>
             </ul>
 

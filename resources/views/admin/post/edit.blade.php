@@ -1,5 +1,8 @@
 @extends('layouts.admin')
 @section('page-title', 'Update Post')
+@section('header')
+    <link href="{{ asset('css/froala_editor.pkgd.min.css') }}" rel="stylesheet" type="text/css" />
+@endsection
 @section('content-title', 'Update Post')
 @section('content-header-tools')
     <a href="{{ route('post.index') }}" class="btn btn-primary"><i class="fas fa-chevron-left"></i> Back</a>
@@ -26,14 +29,16 @@
         <div class="form-group row">
             <label for="content" class="col-sm-2 col-form-label">Content:</label>
             <div class="col-sm-10">
-                <textarea class="form-control" name="content" rows="10">{{ $post->content }}</textarea>
+                <textarea class="form-control" name="content" id="content" rows="10">{{ $post->content }}</textarea>
             </div>
         </div>
 
     </form>
 @endsection
 @section('footer')
+    <script type="text/javascript" src="{{ asset('js/froala_editor.pkgd.min.js') }}"></script>
     <script>
+        new FroalaEditor('#content');
         $('#saveForm').click(function() {
             $('#updatePost').submit();
         });
