@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Admin\Post;
 
+use App\Models\Category;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PostUpdateRequest extends FormRequest
 {
@@ -26,6 +28,7 @@ class PostUpdateRequest extends FormRequest
         return [
             'title' => ['required', 'string'],
             'slug' => ['required', 'string', 'unique:posts,slug,' . $this->post->id],
+            'categories' => ['nullable', 'array', Rule::in(Category::pluck('id')->toArray())],
             'content' => ['required']
         ];
     }

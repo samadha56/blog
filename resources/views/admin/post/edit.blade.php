@@ -27,6 +27,19 @@
         </div>
 
         <div class="form-group row">
+            <label for="categories" class="col-sm-2 col-form-label">categories:</label>
+            <div class="col-sm-10">
+                <select name="categories[]" id="categories" class="form-control" multiple>
+                    @foreach ($categories as $category)
+                        <option
+                            {{ !empty(old('categories', $postCategories)) && in_array($category->id, old('categories', $postCategories))? 'selected': '' }}
+                            value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
             <label for="content" class="col-sm-2 col-form-label">Content:</label>
             <div class="col-sm-10">
                 <textarea class="form-control" name="content" id="content" rows="10">{{ $post->content }}</textarea>
