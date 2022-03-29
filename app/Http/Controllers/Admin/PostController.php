@@ -38,11 +38,6 @@ class PostController extends Controller
         return view('admin.post.index');
     }
 
-    public function show(Post $post)
-    {
-        return view('admin.post.show', compact('post'));
-    }
-
     public function create()
     {
         $categories = Category::all(['id', 'name']);
