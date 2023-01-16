@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\SiteController;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class IndexController extends SiteController
 {
     public function index()
     {

@@ -8,11 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $config['site_title'] }}</title>
+    <meta name="description" content="{{ $config['site_description'] }}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/type_character.js') }}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
         integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -31,8 +31,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-light bg-light container">
-            <a href="{{ url('/') }}" class="typewrite navbar-brand" data-period="2000"
-                data-type='[ "BLOG", "For Programmers" ]'>
+            <a href="{{ url('/') }}" class="navbar-brand">{{ $config['blog_header'] }}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,24 +70,19 @@
         <div class="p-3 pb-0">
             <!-- Section: Social media -->
             <section class="mb-4">
-                <!-- Facebook -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                        class="fa-solid fa-at"></i></a>
-
                 <!-- Twitter -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                <a class="btn btn-outline-light btn-floating m-1"
+                    href="https://twitter.com/{{ $config['social_twitter'] }}" target="_blank" role="button"><i
                         class="fab fa-twitter"></i></a>
 
-                <!-- Instagram -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                        class="fab fa-instagram"></i></a>
-
                 <!-- Linkedin -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                        class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-outline-light btn-floating m-1"
+                    href="https://www.linkedin.com/in/{{ $config['social_linkdin'] }}" target="_blank"
+                    role="button"><i class="fab fa-linkedin-in"></i></a>
 
                 <!-- Github -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                <a class="btn btn-outline-light btn-floating m-1"
+                    href="https://github.com/{{ $config['social_github'] }}" target="_blank" role="button"><i
                         class="fab fa-github"></i></a>
             </section>
             <!-- Section: Social media -->
@@ -97,7 +91,7 @@
 
         <!-- Copyright -->
         <div class="text-center pb-3">
-            <p class="typewrite text-white" data-period="2000" data-type='[ "Make With Love", "For Programmers" ]'>
+            <p class="text-white"> {{ $config['blog_footer'] }}
             </p>
         </div>
         <!-- Copyright -->

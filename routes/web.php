@@ -34,5 +34,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/category-datatable', 'CategoryController@datatable')->name('admin.category.datatable'); // Category Datatable
         Route::resource('/post', 'PostController'); // Posts
         Route::post('/post-datatable', 'PostController@datatable')->name('admin.post.datatable'); // Post Datatable
+        Route::get('/config', 'ConfigController@index')->name('admin.config.index');
+        Route::post('/config', 'ConfigController@update')->name('admin.config.update');
     });
 });
