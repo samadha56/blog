@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('page-title', 'Update Post')
 @section('header')
-    <link href="{{ asset('css/froala_editor.pkgd.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 @section('content-title', 'Update Post')
 @section('content-header-tools')
@@ -32,7 +31,7 @@
                 <select name="categories[]" id="categories" class="form-control" multiple>
                     @foreach ($categories as $category)
                         <option
-                            {{ !empty(old('categories', $postCategories)) && in_array($category->id, old('categories', $postCategories))? 'selected': '' }}
+                            {{ !empty(old('categories', $postCategories)) && in_array($category->id, old('categories', $postCategories)) ? 'selected' : '' }}
                             value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                 </select>
@@ -42,16 +41,26 @@
         <div class="form-group row">
             <label for="content" class="col-sm-2 col-form-label">Content:</label>
             <div class="col-sm-10">
-                <textarea class="form-control" name="content" id="content" rows="10">{{ $post->content }}</textarea>
+                <form>
+                    <textarea name="content">{{ $post->content }}</textarea>
+                </form>
             </div>
         </div>
 
     </form>
 @endsection
 @section('footer')
-    <script type="text/javascript" src="{{ asset('js/froala_editor.pkgd.min.js') }}"></script>
+    <script src="https://cdn.tiny.cloud/1/p1y941xnhle62iwxs1v46b63zqwx5ebddljicggtc503mo5b/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
     <script>
-        new FroalaEditor('#content');
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'link image code directionality',
+            toolbar: 'image | ltr rtl undo redo | bold italic | alignleft aligncenter alignright | code',
+            images_upload_url: '{{ asset("upload-script.php") }}',
+        });
+    </script>
+    <script>
         $('#saveForm').click(function() {
             $('#updatePost').submit();
         });

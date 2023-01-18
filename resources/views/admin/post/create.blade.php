@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('page-title', 'Write Post')
 @section('header')
-    <link href="{{ asset('css/froala_editor.pkgd.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 @section('content-title', 'Write Post')
 @section('content-header-tools')
@@ -44,17 +43,26 @@
         <div class="form-group row">
             <label for="content" class="col-sm-2 col-form-label">Content:</label>
             <div class="col-sm-10">
-                <textarea class="form-control" name="content" id="content"
-                    placeholder="Just Write ...">{{ old('content') }}</textarea>
+                <form>
+                    <textarea name="content">{{ old('content') }}</textarea>
+                </form>
             </div>
         </div>
 
     </form>
 @endsection
 @section('footer')
-    <script type="text/javascript" src="{{ asset('js/froala_editor.pkgd.min.js') }}"></script>
+    <script src="https://cdn.tiny.cloud/1/p1y941xnhle62iwxs1v46b63zqwx5ebddljicggtc503mo5b/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
     <script>
-        new FroalaEditor('#content');
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'link image code directionality',
+            toolbar: 'image | ltr rtl undo redo | bold italic | alignleft aligncenter alignright | code',
+            images_upload_url: '{{ asset('upload-script.php') }}',
+        });
+    </script>
+    <script>
         $('#saveForm').click(function() {
             $('#newPost').submit();
         });
