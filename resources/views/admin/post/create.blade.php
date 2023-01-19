@@ -59,7 +59,7 @@
             selector: 'textarea',
             plugins: 'link image code directionality',
             toolbar: 'image | ltr rtl undo redo | bold italic | alignleft aligncenter alignright | code',
-            images_upload_url: '{{ env('APP_URL') . '/upload-script.php' }}',
+            images_upload_url: '{{ asset("upload-script.php") }}',
         });
     </script>
     <script>
