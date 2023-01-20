@@ -29,7 +29,8 @@ class PostUpdateRequest extends FormRequest
             'title' => ['required', 'string'],
             'slug' => ['required', 'string', 'unique:posts,slug,' . $this->post->id],
             'categories' => ['nullable', 'array', Rule::in(Category::pluck('id')->toArray())],
-            'content' => ['required']
+            'short_content' => ['required'],
+            'content' => ['nullable']
         ];
     }
 }

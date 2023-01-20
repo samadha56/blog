@@ -28,7 +28,7 @@
         </div>
 
         <div class="form-group row">
-            <label for="categories" class="col-sm-2 col-form-label">categories:</label>
+            <label for="categories" class="col-sm-2 col-form-label">Categories:</label>
             <div class="col-sm-10">
                 <select name="categories[]" id="categories" class="form-control" multiple>
                     @foreach ($categories as $category)
@@ -41,11 +41,16 @@
         </div>
 
         <div class="form-group row">
+            <label for="slug" class="col-sm-2 col-form-label">Short content:</label>
+            <div class="col-sm-10">
+                <textarea name="short_content" id="short_content" class="form-control" placeholder="Enter Post Short Content ...">{{ old('short_content') }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group row">
             <label for="content" class="col-sm-2 col-form-label">Content:</label>
             <div class="col-sm-10">
-                <form>
-                    <textarea name="content">{{ old('content') }}</textarea>
-                </form>
+                    <textarea name="content" id="content" placeholder="Enter Post Content ...">{{ old('content') }}</textarea>
             </div>
         </div>
 
@@ -59,7 +64,7 @@
             selector: 'textarea',
             plugins: 'link image code directionality',
             toolbar: 'image | ltr rtl undo redo | bold italic | alignleft aligncenter alignright | code',
-            images_upload_url: '{{ asset("upload-script.php") }}',
+            images_upload_url: '{{ asset('upload-script.php') }}',
         });
     </script>
     <script>

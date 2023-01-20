@@ -39,11 +39,16 @@
         </div>
 
         <div class="form-group row">
+            <label for="slug" class="col-sm-2 col-form-label">Short content:</label>
+            <div class="col-sm-10">
+                <textarea name="short_content" id="short_content" class="form-control" placeholder="Enter Post Short Content ...">{{ $post->short_content }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group row">
             <label for="content" class="col-sm-2 col-form-label">Content:</label>
             <div class="col-sm-10">
-                <form>
-                    <textarea name="content">{{ $post->content }}</textarea>
-                </form>
+                    <textarea name="content" placeholder="Enter Post Content ...">{{ $post->content }}</textarea>
             </div>
         </div>
 

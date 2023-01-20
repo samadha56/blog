@@ -29,7 +29,8 @@ class PostStoreRequest extends FormRequest
             'title' => ['required', 'string'],
             'slug' => ['required', 'string', 'unique:posts,slug'],
             'categories' => ['nullable', 'array', Rule::in(Category::pluck('id')->toArray())],
-            'content' => ['required'],
+            'short_content' => ['required'],
+            'content' => ['nullable'],
         ];
     }
 }
