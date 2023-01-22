@@ -50,7 +50,7 @@
         <div class="form-group row">
             <label for="content" class="col-sm-2 col-form-label">Content:</label>
             <div class="col-sm-10">
-                    <textarea name="content" id="content" placeholder="Enter Post Content ...">{{ old('content') }}</textarea>
+                <textarea name="content" id="content" placeholder="Enter Post Content ...">{{ old('content') }}</textarea>
             </div>
         </div>
 
@@ -62,9 +62,16 @@
     <script>
         tinymce.init({
             selector: 'textarea',
+            image_class_list: [{
+                title: 'Responsive',
+                value: 'img-fluid'
+            }, ],
+            image_title: true,
+            automatic_uploads: true,
+            file_picker_types: 'image',
             plugins: 'link image code directionality',
             toolbar: 'image | ltr rtl undo redo | bold italic | alignleft aligncenter alignright | code',
-            images_upload_url: '{{ asset('upload-script.php') }}',
+            images_upload_url: '{{ route('admin.upload.image') }}',
         });
     </script>
     <script>

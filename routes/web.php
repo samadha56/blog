@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', 'Site\IndexController@index')->name('site.index');
 Route::get('/category/{slug}', 'Site\CategoryController@show')->name('site.category.show');
@@ -36,5 +35,6 @@ Route::prefix('admin')->group(function () {
         Route::post('/post-datatable', 'PostController@datatable')->name('admin.post.datatable'); // Post Datatable
         Route::get('/config', 'ConfigController@index')->name('admin.config.index');
         Route::post('/config', 'ConfigController@update')->name('admin.config.update');
+        Route::post('/upload-image', 'UploadController@uploadImage')->name('admin.upload.image');
     });
 });
