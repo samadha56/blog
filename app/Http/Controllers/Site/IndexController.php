@@ -10,7 +10,7 @@ class IndexController extends SiteController
 {
     public function index()
     {
-        $posts = Post::orderByDesc('id')->get();
+        $posts = Post::orderByDesc('id')->paginate(5);
         return view('site.index', compact('posts'));
     }
 }

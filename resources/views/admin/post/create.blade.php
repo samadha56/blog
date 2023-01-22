@@ -69,8 +69,8 @@
             image_title: true,
             automatic_uploads: true,
             file_picker_types: 'image',
-            plugins: 'link image code directionality',
-            toolbar: 'image | ltr rtl undo redo | bold italic | alignleft aligncenter alignright | code',
+            plugins: 'wordcount link image code directionality',
+            toolbar: 'wordcount | image | ltr rtl undo redo | bold italic | alignleft aligncenter alignright | code',
             images_upload_url: '{{ route('admin.upload.image') }}',
         });
     </script>
