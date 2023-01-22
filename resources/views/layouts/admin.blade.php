@@ -50,8 +50,7 @@
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Brad Diesel
-                                        <span class="float-right text-sm text-danger"><i
-                                                class="fas fa-star"></i></span>
+                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
                                     </h3>
                                     <p class="text-sm">Call me whenever you can...</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
@@ -188,7 +187,7 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Config
-                                <span class="right badge badge-danger">!</span>
+                                    <span class="right badge badge-danger">!</span>
                                 </p>
                             </a>
                         </li>
@@ -217,6 +216,11 @@
                         @if (session()->has('success'))
                             <div class="alert alert-success">
                                 {{ session()->get('success') }}
+                            </div>
+                        @endif
+                        @if (session()->has('fail'))
+                            <div class="alert alert-danger">
+                                {{ session()->get('fail') }}
                             </div>
                         @endif
                         @if ($errors->any())
