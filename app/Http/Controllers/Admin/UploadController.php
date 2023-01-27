@@ -9,7 +9,7 @@ class UploadController extends Controller
 {
     public function uploadImage(UploadImage $request)
     {
-        $imgpath = request()->file('file')->store('uploads', 'public');
+        $imgpath = $request->file('file')->store('uploads', 'public');
         return response()->json(['location' => "/storage/$imgpath"]);
     }
 }
