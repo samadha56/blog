@@ -125,7 +125,7 @@
 
         <!-- Copyright -->
         <div class="text-center pb-3">
-            <p class="text-white"> {{ $config['blog_footer'] }}
+            <p class="text-white"> {!! $config['blog_footer'] !!}
             </p>
         </div>
         <!-- Copyright -->
