@@ -69,13 +69,20 @@
             </div>
         </nav>
 
-        <main class="mt-4 container border bg-white rounded">
+        <main class="mt-4 container border bg-white">
             <div class="row">
                 <div class="col-md-8 p-5">
                     @yield('content')
                 </div>
                 <div class="col-md-4 p-5">
-                    <div>
+                    <div class="card text-bg-light mb-3">
+                        <div class="card-header"><i class="fa-solid fa-user"></i> About me ...</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Samad Hassan Allafi</h5>
+                            <p class="card-text">I am a backend developer and live in Iran,Tabriz ...</p>
+                        </div>
+                    </div>
+                    <div class="mt-5">
                         <h1 style='font-size: 16px;'><i class="fa-solid fa-bookmark"></i> Categories</h1>
                         <hr>
                         <ul>
@@ -99,11 +106,11 @@
             </div>
         </main>
     </div>
-    <footer class="bg-dark text-center text-white container">
+    <footer class="bg-dark text-center text-white container roundeed">
         <!-- Grid container -->
-        <div class="p-3 pb-0">
+        <div>
             <!-- Section: Social media -->
-            <section class="mb-4">
+            <section class="pt-3 pb-3">
                 <!-- Twitter -->
                 <a class="btn btn-outline-light btn-floating m-1"
                     href="https://twitter.com/{{ $config['social_twitter'] }}" target="_blank" role="button"><i
