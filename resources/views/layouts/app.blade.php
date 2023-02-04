@@ -61,8 +61,7 @@
                 <div class="navbar-nav">
                     @foreach (App\Models\Category::all() as $category)
                         <a class="nav-item nav-link active"
-                            href="{{ route('site.category.show', $category->slug) }}">{{ $category->name }} <span
-                                class="sr-only">(current)</span></a>
+                            href="{{ route('site.category.show', $category->slug) }}">{{ $category->name }}</a>
                     @endforeach
                 </div>
             </div>
@@ -74,13 +73,26 @@
                     @yield('content')
                 </div>
                 <div class="col-md-4 p-5">
-                    <h1 style='font-size: 16px;'>New Posts</h1>
-                    <hr>
-                    <ul>
-                        @foreach (App\Models\Post::limit(8)->get(['title', 'slug']) as $post)
-                            <li><a href="{{ route('site.post.show', $post->slug) }}">{{ $post->title }}</a></li>
-                        @endforeach
-                    </ul>
+                    <div>
+                        <h1 style='font-size: 16px;'>Categories</h1>
+                        <hr>
+                        <ul>
+                            @foreach (App\Models\Category::get(['name', 'slug']) as $category)
+                                <li><a
+                                        href="{{ route('site.category.show', $category->slug) }}">{{ $category->name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="mt-5">
+                        <h1 style='font-size: 16px;'>New Posts</h1>
+                        <hr>
+                        <ul>
+                            @foreach (App\Models\Post::limit(8)->get(['title', 'slug']) as $post)
+                                <li><a href="{{ route('site.post.show', $post->slug) }}">{{ $post->title }}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
         </main>

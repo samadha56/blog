@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <h1 class="mb-3 border rounded p-2">Category: {{ $category->name }}</h1>
+    <h1 class="mb-3 p-2">Category: {{ $category->name }}</h1>
     @forelse ($posts as $key => $post)
         <div class="col-12 border rounded p-5 {{ $key > 0 ? 'mt-3' : '' }}">
             <h1 class="text-center" style="font-size: 22px;"><a
