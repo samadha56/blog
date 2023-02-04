@@ -58,6 +58,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <a class="nav-item nav-link active" href="{{ env('APP_URL') }}"><i class="fa-solid fa-house"></i>
+                    Home</a>
                 <div class="navbar-nav">
                     @foreach (App\Models\Category::all() as $category)
                         <a class="nav-item nav-link active"
