@@ -26,7 +26,7 @@ class PostController extends Controller
                 return Date('Y/m/d H:i:s', strtotime($data));
             }],
             ['db' => null, 'dt' => 'options', 'formatter' => function ($data, $row) {
-                return view('admin.post.options', ['id' => $row->id])->render();
+                return view('admin.post.options', ['slug' => $row->slug])->render();
             }],
         ];
 

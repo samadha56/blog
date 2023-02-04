@@ -11,6 +11,11 @@ class Post extends Model
 
     protected $fillable = ['title', 'slug', 'short_content', 'content'];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function categories()
     {
         return $this->belongsToMany(Category::class, 'category_posts');

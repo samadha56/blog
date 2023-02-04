@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\SiteController;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class PostController extends SiteController
 {
-    public function show($slug) {
-        $post = Post::where('slug', $slug)->firstOrFail();
-        dd($post->content);
+    public function show(Post $post) {
+        return view('site.post', compact('post'));
     }
 }
