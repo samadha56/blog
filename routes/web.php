@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', 'Site\IndexController@index')->name('site.index');
-Route::get('/category/{slug}', 'Site\CategoryController@show')->name('site.category.show');
+Route::get('/category/{category}', 'Site\CategoryController@show')->name('site.category.show');
 Route::get('/post/{slug}', 'Site\PostController@show')->name('site.post.show');
 
 // Login and Register Routes

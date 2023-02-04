@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\SiteController;
 use App\Models\Category;
-use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class CategoryController extends SiteController
 {
-    public function show($slug)
+    public function show(Category $category)
     {
-        $category = Category::where('slug', $slug)->firstOrFail();
-        dd($category->id);
+        $posts = $category->posts()->orderByDesc('id')->paginate(5);
+        return view('site.catogory', compact('category', 'posts'));
     }
 }

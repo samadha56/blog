@@ -20,7 +20,7 @@ class CategoryController extends Controller
             ['db' => 'slug', 'dt' => 'slug'],
             ['db' => 'name', 'dt' => 'name'],
             ['db' => null, 'dt' => 'options', 'formatter' => function ($data, $row) {
-                return view('admin.Category.options', ['id' => $row->id])->render();
+                return view('admin.Category.options', ['slug' => $row->slug])->render();
             }],
         ];
 
@@ -64,6 +64,9 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
+        if ($category->posts()->exists()) {
+            return redirect()->route('category.index')->with('fail', __('message.fail.delete.category.have.post'));
+        }
         $category->delete();
         return redirect()->route('category.index')->with('success', __('message.success.delete'));
     }
