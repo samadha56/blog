@@ -76,7 +76,7 @@
                 </div>
                 <div class="col-md-4 p-5">
                     <div>
-                        <h1 style='font-size: 16px;'>Categories</h1>
+                        <h1 style='font-size: 16px;'><i class="fa-solid fa-bookmark"></i> Categories</h1>
                         <hr>
                         <ul>
                             @foreach (App\Models\Category::get(['name', 'slug']) as $category)
@@ -87,7 +87,7 @@
                         </ul>
                     </div>
                     <div class="mt-5">
-                        <h1 style='font-size: 16px;'>New Posts</h1>
+                        <h1 style='font-size: 16px;'><i class="fa-solid fa-book"></i> New Posts</h1>
                         <hr>
                         <ul>
                             @foreach (App\Models\Post::limit(8)->get(['title', 'slug']) as $post)
