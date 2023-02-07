@@ -61,9 +61,9 @@
                 <a class="nav-item nav-link active" href="{{ env('APP_URL') }}"><i class="fa-solid fa-house"></i>
                     Home</a>
                 <div class="navbar-nav">
-                    @foreach (App\Models\Category::all() as $category)
+                    @foreach (App\Models\Page::all() as $page)
                         <a class="nav-item nav-link active"
-                            href="{{ route('site.category.show', $category->slug) }}">{{ $category->name }}</a>
+                            href="{{ route('site.page.show', $page->slug) }}">{{ $page->title }}</a>
                     @endforeach
                 </div>
             </div>

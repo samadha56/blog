@@ -8,7 +8,7 @@
     <a id="saveForm" class="btn btn-primary"><i class="fas fa-save"></i> Save</a>
 @endsection
 @section('content')
-    <form action="{{ route('post.update', $post->id) }}" method="POST" id="updatePost">
+    <form action="{{ route('post.update', $post->slug) }}" method="POST" id="updatePost">
         @csrf
         @method('PUT')
         <div class="form-group row">

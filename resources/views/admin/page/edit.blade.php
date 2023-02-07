@@ -1,0 +1,60 @@
+@extends('layouts.admin')
+@section('page-title', 'Update Page')
+@section('header')
+@endsection
+@section('content-title', 'Update Page')
+@section('content-header-tools')
+    <a href="{{ route('page.index') }}" class="btn btn-primary"><i class="fas fa-chevron-left"></i> Back</a>
+    <a id="saveForm" class="btn btn-primary"><i class="fas fa-save"></i> Save</a>
+@endsection
+@section('content')
+    <form action="{{ route('page.update', $page->slug) }}" method="POST" id="updatePage">
+        @csrf
+        @method('PUT')
+        <div class="form-group row">
+            <label for="title" class="col-sm-2 col-form-label">Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="title" value="{{ old('title', $page->title) }}">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="slug" class="col-sm-2 col-form-label">Slug:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="slug" value="{{ old('slug', $page->slug) }}">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="content" class="col-sm-2 col-form-label">Content:</label>
+            <div class="col-sm-10">
+                <textarea name="content" placeholder="Enter Page Content ...">{{ $page->content }}</textarea>
+            </div>
+        </div>
+
+    </form>
+@endsection
+@section('footer')
+    <script src="https://cdn.tiny.cloud/1/p1y941xnhle62iwxs1v46b63zqwx5ebddljicggtc503mo5b/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            image_class_list: [{
+                title: 'Responsive',
+                value: 'img-fluid'
+            }, ],
+            image_title: true,
+            automatic_uploads: true,
+            file_picker_types: 'image',
+            plugins: 'wordcount link image code directionality',
+            toolbar: 'wordcount | image | ltr rtl undo redo | bold italic | alignleft aligncenter alignright | code',
+            images_upload_url: '{{ route('admin.upload.image') }}',
+        });
+    </script>
+    <script>
+        $('#saveForm').click(function() {
+            $('#updatePage').submit();
+        });
+    </script>
+@endsection

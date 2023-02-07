@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'Site\IndexController@index')->name('site.index');
 Route::get('/category/{category}', 'Site\CategoryController@show')->name('site.category.show');
 Route::get('/post/{post}', 'Site\PostController@show')->name('site.post.show');
+Route::get('/page/{page}', 'Site\PageController@show')->name('site.page.show');
 
 // Login and Register Routes
 Auth::routes(['login' => false, 'register' => false]);
@@ -33,6 +34,8 @@ Route::prefix('admin')->group(function () {
         Route::post('/category-datatable', 'CategoryController@datatable')->name('admin.category.datatable'); // Category Datatable
         Route::resource('/post', 'PostController'); // Posts
         Route::post('/post-datatable', 'PostController@datatable')->name('admin.post.datatable'); // Post Datatable
+        Route::resource('/page', 'PageController'); // Pages
+        Route::post('/page-datatable', 'PageController@datatable')->name('admin.page.datatable'); // Page Controller
         Route::get('/config', 'ConfigController@index')->name('admin.config.index');
         Route::post('/config', 'ConfigController@update')->name('admin.config.update');
         Route::post('/upload-image', 'UploadController@uploadImage')->name('admin.upload.image');
