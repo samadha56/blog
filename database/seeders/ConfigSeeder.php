@@ -14,12 +14,13 @@ class ConfigSeeder extends Seeder
      */
     public function run()
     {
-        Config::firstOrCreate(['name' => 'title', 'slug' => 'site_title', 'content' => 'My Blog']);
-        Config::firstOrCreate(['name' => 'description', 'slug' => 'site_description', 'content' => 'This is my blog']);
-        Config::firstOrCreate(['name' => 'Header', 'slug' => 'blog_header', 'content' => 'MY BLOG']);
-        Config::firstOrCreate(['name' => 'Footer', 'slug' => 'blog_footer', 'content' => 'Make With Love']);
-        Config::firstOrCreate(['name' => 'Twitter', 'slug' => 'social_twitter', 'content' => 'username']);
-        Config::firstOrCreate(['name' => 'Linkdin', 'slug' => 'social_linkdin', 'content' => 'username']);
-        Config::firstOrCreate(['name' => 'Github', 'slug' => 'social_github', 'content' => 'username']);
+        Config::firstOrCreate(['slug' => 'site_title'], ['name' => 'title', 'content' => 'My Blog']);
+        Config::firstOrCreate(['slug' => 'site_description'], ['name' => 'description', 'content' => 'This is my blog']);
+        Config::firstOrCreate(['slug' => 'blog_header'], ['name' => 'Header', 'content' => 'MY BLOG']);
+        Config::firstOrCreate(['slug' => 'blog_footer'], ['name' => 'Footer', 'content' => 'Make With Love']);
+        Config::firstOrCreate(['slug' => 'social_twitter'], ['name' => 'Twitter', 'content' => 'username']);
+        Config::firstOrCreate(['slug' => 'social_linkdin'], ['name' => 'Linkdin', 'content' => 'username']);
+        Config::firstOrCreate(['slug' => 'social_github'], ['name' => 'Github', 'content' => 'username']);
+        Config::firstOrCreate(['slug' => 'about_me'], ['name' => 'about me', 'content' => 'Hi, My name is ...']);
     }
 }

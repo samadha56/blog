@@ -78,8 +78,7 @@
                     <div class="card text-bg-light mb-3">
                         <div class="card-header"><i class="fa-solid fa-user"></i> About me ...</div>
                         <div class="card-body">
-                            <h5 class="card-title">Samad Hassan Allafi</h5>
-                            <p class="card-text">I am a backend developer and live in Iran,Tabriz ...</p>
+                            <p class="card-text">{!! $config['about_me'] !!}</p>
                         </div>
                     </div>
                     <div class="mt-5">
