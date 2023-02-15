@@ -6,6 +6,8 @@
                     href="{{ route('site.post.show', $post->slug) }}">{{ $post->title }}</a></h1>
             <h6 class="text-center"><small>{{ date('Y-m-d', strtotime($post->created_at)) }}</small></h6>
             <div>{!! $post->short_content !!}</div>
+            <hr>
+            <div class="text-center"><a href="{{ route('site.post.show', $post->slug) }}">continues ...</a></div>
         </div>
     @empty
         <strong>Sorry, I have not any thing to show :(</strong>
