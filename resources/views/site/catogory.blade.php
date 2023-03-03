@@ -11,7 +11,7 @@
             <div class="text-center"><a href="{{ route('site.post.show', $post->slug) }}">continues ...</a></div>
         </div>
     @empty
-        <strong>Sorry, I have not any thing to show :(</strong>
+        <strong>Unfortunately, I don't have any items to show :(</strong>
     @endforelse
     <div class="col-12 mt-3">
         {{ $posts->links('pagination::bootstrap-4') }}
