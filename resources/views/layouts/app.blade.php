@@ -97,7 +97,7 @@
                         <hr>
                         <ul>
                             @foreach (App\Models\Post::limit(8)->get(['title', 'slug']) as $post)
-                                <li><a href="{{ route('site.post.show', $post->slug) }}">{{ $post->title }}</a></li>
+                                <li><a dir="rtl" href="{{ route('site.post.show', $post->slug) }}">{{ $post->title }}</a></li>
                             @endforeach
                         </ul>
                     </div>
