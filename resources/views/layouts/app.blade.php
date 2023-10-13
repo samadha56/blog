@@ -96,7 +96,7 @@
                         <h1 style='font-size: 16px;'><i class="fa-solid fa-book"></i> New Posts</h1>
                         <hr>
                         <ul>
-                            @foreach (App\Models\Post::limit(8)->get(['title', 'slug']) as $post)
+                            @foreach (App\Models\Post::limit(8)->orderByDesc('id')->get(['title', 'slug']) as $post)
                                 <li><a dir="rtl" href="{{ route('site.post.show', $post->slug) }}">{{ $post->title }}</a></li>
                             @endforeach
                         </ul>
