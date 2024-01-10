@@ -4,8 +4,8 @@ echo "starting git pull ..."
 git pull
 
 echo "starting compose down & up ..."
-docker compose down
-docker compose up -d --build
+docker-compose down
+docker-compose up -d --build
 
 echo "starting sleep ..."
 sleep 10
