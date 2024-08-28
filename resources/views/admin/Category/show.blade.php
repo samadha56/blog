@@ -2,11 +2,11 @@
 @section('page-title', 'Show Category ' . $category->name)
 @section('content-title', 'Category: ' . $category->name)
 @section('content-header-tools')
-    <form method="post" action="{{ route('category.destroy', $category->id) }}">
+    <form method="post" action="{{ route('category.destroy', $category->slug) }}">
         @csrf
         @method('delete')
         <a href="{{ route('category.index') }}" class="btn btn-primary"><i class="fas fa-chevron-left"></i> Back</a>
-        <a href="{{ route('category.edit', $category->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i>
+        <a href="{{ route('category.edit', $category->slug) }}" class="btn btn-warning"><i class="fas fa-edit"></i>
             Edit</a>
         <button onclick="return confirm('Are You Sure Delete This Category?');" class="btn btn-danger"><i
                 class="fas fa-trash"></i>

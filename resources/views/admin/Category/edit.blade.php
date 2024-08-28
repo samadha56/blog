@@ -2,11 +2,11 @@
 @section('page-title', 'Update Category')
 @section('content-title', 'Update Category')
 @section('content-header-tools')
-    <a href="{{ route('category.show', $category->id) }}" class="btn btn-primary"><i class="fas fa-chevron-left"></i> Back</a>
+    <a href="{{ route('category.show', $category->slug) }}" class="btn btn-primary"><i class="fas fa-chevron-left"></i> Back</a>
     <a id="saveForm" class="btn btn-primary"><i class="fas fa-save"></i> Update</a>
 @endsection
 @section('content')
-    <form action="{{ route('category.update', $category->id) }}" method="POST" id="updateCategory">
+    <form action="{{ route('category.update', $category->slug) }}" method="POST" id="updateCategory">
         @csrf
         @method('PUT')
         <div class="form-group row">
