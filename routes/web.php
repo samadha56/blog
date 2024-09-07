@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'Site\IndexController@index')->name('site.index');
 Route::get('/category/{category}', 'Site\CategoryController@show')->name('site.category.show');
 Route::get('/post/{post}', 'Site\PostController@show')->name('site.post.show');
-Route::post('/comments', 'Site\CommentController@store')->name('site.comments.store');
+Route::post('/comments', 'Site\CommentController@store')->name('site.comments.store')->middleware('throttle:3,1');
 Route::get('/page/{page}', 'Site\PageController@show')->name('site.page.show');
 
 // Login and Register Routes

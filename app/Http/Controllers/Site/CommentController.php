@@ -13,6 +13,6 @@ class CommentController extends Controller
     {
         $data = $request->validated();
         Comment::create($data);
-        return redirect()->back()->with('success', 'Comment added successfully!');
+        return redirect()->back()->with('success', 'Your comment was submitted successfully and will appear after admin approval.');
     }
 }

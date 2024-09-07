@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 class PostController extends SiteController
 {
     public function show(Post $post) {
-        return view('site.post', compact('post'));
+        $comments = $post->comments()->confirmedStatus()->get(['author_name', 'content', 'created_at']);
+        return view('site.post', compact('post', 'comments'));
     }
 }

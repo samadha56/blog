@@ -8,6 +8,11 @@
         <div>{!! $post->content !!}</div>
     </div>
     <hr>
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <form action="{{ route('site.comments.store') }}" method="POST">
         @csrf
         <input type="hidden" name="post_id" value="{{ $post->id }}">
@@ -26,7 +31,7 @@
     </form>
 
     <hr>
-    @foreach ($post->comments as $comment)
+    @foreach ($comments as $comment)
         <div class="card mb-3">
             <div class="card-body">
                 <h5 class="card-title">{{ $comment->author_name }}</h5>
