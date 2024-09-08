@@ -40,5 +40,9 @@ Route::prefix('admin')->group(function () {
         Route::get('/config', 'ConfigController@index')->name('admin.config.index');
         Route::post('/config', 'ConfigController@update')->name('admin.config.update');
         Route::post('/upload-image', 'UploadController@uploadImage')->name('admin.upload.image');
+        Route::post('/comment-datatable', 'CommentController@datatable')->name('admin.comment.datatable');
+        Route::get('/comment', 'CommentController@index')->name('admin.comment.index');
+        Route::put('/comment/confirm/{comment}', 'CommentController@confirmComment')->name('admin.comment.confirm');
+        Route::put('/comment/unconfirm/{comment}', 'CommentController@unconfirmComment')->name('admin.comment.unconfirm');
     });
 });
