@@ -37,7 +37,7 @@ class CommentController extends Controller
 
     public function index()
     {
-        return view('admin.comment.index');
+        return view('admin.Comment.index');
     }
 
     public function confirmComment(Comment $comment)
