@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('page-title', ' | ' . $post->title)
+@section('page-description', ' | ' . $post->title)
 @section('content')
     <div class="col-12 border rounded p-5">
         <h1 class="text-center" style="font-size: 22px;" dir="rtl">{{ $post->title }}</h1>

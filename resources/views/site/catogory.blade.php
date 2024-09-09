@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('page-title', ' | ' . $category->name . ' category')
+@section('page-description', ' | ' . $category->name . ' category of my personal blog')
 @section('content')
     <h1 class="mb-3"><i class="fa-solid fa-bookmark"></i> Category: {{ $category->name }}</h1>
     @forelse ($posts as $key => $post)

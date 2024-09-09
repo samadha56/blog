@@ -8,8 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $config['site_title'] }}</title>
-    <meta name="description" content="{{ $config['site_description'] }}">
+    <title>{{ $config['site_title'] }} @yield('page-title')</title>
+    <meta name="description" content="{{ $config['site_description'] }} @yield('page-description')">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -58,7 +58,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <a class="nav-item nav-link active" href="{{ env('APP_URL') }}"><i class="fa-solid fa-house"></i>
+                <a class="nav-item nav-link active" href="{{ url('/') }}"><i class="fa-solid fa-house"></i>
                     Home</a>
                 <div class="navbar-nav">
                     @foreach (App\Models\Page::all() as $page)
