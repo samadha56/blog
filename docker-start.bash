@@ -3,6 +3,9 @@
 echo "starting git pull ..."
 git pull
 
+echo "composer install ..."
+composer install
+
 echo "starting compose down & up ..."
 docker-compose down
 docker-compose up -d --build
