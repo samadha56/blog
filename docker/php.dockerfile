@@ -14,3 +14,8 @@ RUN chmod -R 775 /var/www/html/bootstrap/cache
 RUN docker-php-ext-install pdo pdo_mysql
 
 RUN chown -R laravel:laravel /var/www/html
+
+# Cron job
+RUN apk update && apk add --no-cache dcron
+RUN echo "* * * * * cd /var/www/html && php artisan schedule:run >> /dev/null 2>&1" >> /etc/crontabs/root
+RUN chmod 0644 /etc/crontabs/root
